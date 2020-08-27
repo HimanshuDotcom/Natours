@@ -1,0 +1,58 @@
+.story {
+	width: 75%;
+	margin: 0 auto;
+	padding: 10rem 5rem;
+	font-size: $default-font;
+	background-color: rgba($color-white, .5);
+	border-radius: 3px;
+	box-shadow: 0 2px 5px rgba($color-black,.5);
+	transform: skewX(-12deg);
+
+	/*
+	& > * {
+		 transform:  skewX(12deg);  // does not work for shape because of it is defined below
+	}
+	*/
+
+	&__shape {
+		height: 20rem;
+		width: 20rem;
+		float: left;
+		-webkit-clip-path: circle(50% at 50% 50%);
+		clip-path: circle(50% at 50% 50%);
+		-webkit-shape-outside: circle(50% at 50% 50%);
+		shape-outside: circle(50% at 50% 50%);
+		transform: translateX(-2rem) skewX(12deg);
+
+	}
+
+	&__image {
+		height: 100%;
+		transform: translateX(-4rem) skewX(12deg) scale(1.2);
+	} 
+
+	&__caption {
+		text-transform: uppercase;
+		color: $color-white;
+		font-size: 2rem;
+		width: 30%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -20%);
+		opacity: 0;
+		transition-property: transform opacity;
+		transition-duration: .8s;
+		backface-visibility: hidden;
+	}
+
+	&:hover &__caption {
+		transform: translate(-50%, -50%);
+		opacity: 1;
+	}
+
+	&:hover &__image {
+		transform: translateX(-4rem) skewX(12deg) scale(1);
+		filter: blur(3px) brightness(75%);
+	}
+}

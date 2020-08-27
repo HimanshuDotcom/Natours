@@ -1,0 +1,171 @@
+
+.navigation {
+	&__checkbox {
+		display: none;
+	}
+
+	&__button {
+		display: inline-block;
+		background-color: $color-white;
+		font-size: 2rem;
+		text-align: center;
+		height: 7rem;
+		width: 7rem;
+		border-radius: 50%;
+		position: fixed;
+		top: 6rem;
+		right: 6rem;
+		z-index: 15;
+		cursor: pointer;
+		box-shadow: 0rem 0rem 1.5rem rgba($color-black, .7);
+
+		@include respond(tab-port) {
+			top: 3rem;
+			right: 3rem;
+		}
+
+		@include respond(phone) {
+			top: 2rem;
+			right: 2rem;
+		}
+
+	}
+
+	&__icon {
+		position: relative;
+		margin-top: 3.5rem; 
+		&,&::before,&::after {
+			width: 3rem;
+			height: 3px;
+			background-color: $color-grey-dark;
+			display: inline-block;
+		}
+
+		&::before,&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			transition: transform .2s;
+		}
+
+		&::before {
+			top: -1rem;
+		}
+		&::after {
+			top: 1rem;
+		}
+	}
+
+	&__background {
+		height: 6rem;
+		width: 6rem;
+		border-radius: 50%;
+		background-image: radial-gradient($color-primary-light, $color-primary-dark);
+		position: fixed;
+		top: 6.5rem;
+		right: 6.5rem;
+		z-index: 10;
+		transition: transform .6s;
+
+		@include respond(tab-port) {
+			top: 3.5rem;
+			right: 3.5rem;
+		}
+
+		@include respond(phone) {
+			top: 2.5rem;
+			right: 2.5rem;
+		}
+
+	}
+
+	&__nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100%;
+		visibility: hidden;
+		z-index: 12;
+	}
+
+	&__list {
+		@include align-center;
+		list-style: none;
+		text-align: center;
+		opacity: 0;
+		transition: all .5s;
+		visibility: hidden;
+
+		left: 0;  // for animation
+	}
+
+	&__item {
+		margin: 1rem;
+		font-size: 2.2rem;
+
+	}
+
+	&__link {
+		&:link, &:visited {
+			display: inline-block;
+			text-decoration: none;
+			text-transform: uppercase;
+			color: $color-white;
+			padding: 1rem;
+			background: linear-gradient(120deg, transparent 50%, $color-white 50%);
+			background-size: 250%;
+			background-position: top left;
+			transition-property: background-position, transform;
+			transition-duration: .5s;
+		}
+
+		&:hover, &:active{
+			background-position: top right;
+			color: $color-primary;
+			transform: translate(1rem); 			
+		}
+
+		span {
+			margin-right: 1rem;
+		}
+	}
+
+	//FUNCTIONALITY
+
+	&__checkbox:checked ~ &__background {
+		transform: scale(50);
+	}
+
+	&__checkbox:checked ~ &__nav {
+		visibility: visible;
+	}
+
+	&__checkbox:checked ~ &__nav &__list {
+		opacity: 1;
+		left: 50%;
+		visibility: visible;
+	}
+
+	&__button:hover &__icon::before {
+		top: -1.2rem;
+	}
+
+	&__button:hover &__icon::after {
+		top: 1.2rem;
+	}
+
+	&__checkbox:checked ~ &__button &__icon {
+		background: transparent; // so that after and before element positon doesn't change
+	}
+
+	&__checkbox:checked ~ &__button &__icon::before {
+		transform: rotate(135deg);
+		top: 0;
+	}
+
+	&__checkbox:checked ~ &__button &__icon::after {
+		transform: rotate(-135deg);
+		top: 0;
+	}
+}

@@ -8,6 +8,15 @@
 	box-shadow: 0 2px 5px rgba($color-black,.5);
 	transform: skewX(-12deg);
 
+	@include respond(tab-port) {
+		width: 100%;
+		padding: 10rem 4rem;
+	}
+
+	@include respond(phone) {
+		transform: skewX(0);
+	}
+
 	/*
 	& > * {
 		 transform:  skewX(12deg);  // does not work for shape because of it is defined below
@@ -24,12 +33,24 @@
 		shape-outside: circle(50% at 50% 50%);
 		transform: translateX(-2rem) skewX(12deg);
 
+		@include respond(phone) {
+			transform: translateX(-2rem) skewX(0);
+		}
+
 	}
 
 	&__image {
 		height: 100%;
-		transform: translateX(-4rem) skewX(12deg) scale(1.2);
+		transform: translateX(-4rem) scale(1.2);
 	} 
+
+	&__text {
+		transform: skewX(12deg);
+
+		@include respond(phone) {
+			transform: skewX(0);
+		}
+	}
 
 	&__caption {
 		text-transform: uppercase;
@@ -52,7 +73,7 @@
 	}
 
 	&:hover &__image {
-		transform: translateX(-4rem) skewX(12deg) scale(1);
+		transform: translateX(-4rem)  scale(1);
 		filter: blur(3px) brightness(75%);
 	}
 }

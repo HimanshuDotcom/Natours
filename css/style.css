@@ -5,12 +5,12 @@
 
 html {
   font-size: 62.5%; }
-  @media (max-width: 56.25em) {
-    html {
-      font-size: 50%; } }
   @media (max-width: 75em) {
     html {
       font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
   @media (min-width: 112.5em) {
     html {
       font-size: 75%; } }
@@ -87,10 +87,10 @@ body {
   transition: all 0.5s; }
   @media (max-width: 56.25em) {
     .heading-secondary {
-      font-size: 2.2rem; } }
+      font-size: 2.5rem; } }
   @media (max-width: 37.5em) {
     .heading-secondary {
-      font-size: 1.9rem; } }
+      font-size: 2.2rem; } }
   .heading-secondary:hover {
     transform: skewX(15deg) skewY(2deg) scale(1.1);
     text-shadow: 0.2rem 0.5rem 2rem rgba(0, 0, 0, 0.4); }
@@ -263,6 +263,9 @@ body {
   transition: all .5s;
   visibility: hidden;
   left: 0; }
+  @media (max-width: 37.5em) {
+    .navigation__list {
+      position: relative; } }
 
 .navigation__item {
   margin: 1rem;
@@ -541,6 +544,31 @@ body {
     font-size: 4rem;
     letter-spacing: 2px;
     font-weight: 100; }
+  @media (max-width: 56.25em) {
+    .card {
+      height: auto;
+      background-color: white;
+      box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.5); }
+      .card__side {
+        height: auto;
+        position: relative;
+        width: 100%; }
+        .card__side--back {
+          transform: rotateY(0deg);
+          clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); }
+      .card:hover .card__side--front {
+        transform: rotateY(0deg); }
+      .card__cta {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: translate(0);
+        width: 100%;
+        padding: 6rem 4rem 4rem 4rem; }
+      .card__price-box {
+        margin-bottom: 4rem; }
+      .card__price-value {
+        font-size: 4rem; } }
 
 .story {
   width: 75%;
@@ -556,6 +584,13 @@ body {
 		 transform:  skewX(12deg);  // does not work for shape because of it is defined below
 	}
 	*/ }
+  @media (max-width: 56.25em) {
+    .story {
+      width: 100%;
+      padding: 10rem 4rem; } }
+  @media (max-width: 37.5em) {
+    .story {
+      transform: skewX(0); } }
   .story__shape {
     height: 20rem;
     width: 20rem;
@@ -565,9 +600,17 @@ body {
     -webkit-shape-outside: circle(50% at 50% 50%);
     shape-outside: circle(50% at 50% 50%);
     transform: translateX(-2rem) skewX(12deg); }
+    @media (max-width: 37.5em) {
+      .story__shape {
+        transform: translateX(-2rem) skewX(0); } }
   .story__image {
     height: 100%;
-    transform: translateX(-4rem) skewX(12deg) scale(1.2); }
+    transform: translateX(-4rem) scale(1.2); }
+  .story__text {
+    transform: skewX(12deg); }
+    @media (max-width: 37.5em) {
+      .story__text {
+        transform: skewX(0); } }
   .story__caption {
     text-transform: uppercase;
     color: #fff;
@@ -585,7 +628,7 @@ body {
     transform: translate(-50%, -50%);
     opacity: 1; }
   .story:hover .story__image {
-    transform: translateX(-4rem) skewX(12deg) scale(1);
+    transform: translateX(-4rem) scale(1);
     filter: blur(3px) brightness(75%); }
 
 .bg-video {
@@ -600,11 +643,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover; }
-
-.book__form {
-  height: 100%;
-  width: 50%;
-  padding: 10rem 2.5rem; }
 
 .form__group:not(:last-child) {
   margin-bottom: 2.5rem; }
@@ -622,6 +660,9 @@ body {
     border-bottom: 3px solid #28b485; }
   .form__input:focus:invalid {
     border-bottom: 3px solid red; }
+  @media (max-width: 56.25em) {
+    .form__input {
+      width: 100%; } }
 
 .form__label {
   margin-left: 1.8rem;
@@ -639,6 +680,10 @@ body {
 .form__radio-group {
   display: inline-block;
   width: 49%; }
+  @media (max-width: 56.25em) {
+    .form__radio-group {
+      width: 100%;
+      margin-bottom: 2rem; } }
 
 .form__radio-label {
   font-size: 1.6rem;
@@ -775,6 +820,22 @@ body {
   border-radius: 3px;
   background-size: cover;
   box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.4); }
+  @media (max-width: 75em) {
+    .book {
+      background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 65%, transparent 50%), url("../img/nat-10.jpg"); } }
+  @media (max-width: 56.25em) {
+    .book {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 100%, transparent 0), url("../img/nat-10.jpg"); } }
+  .book__form {
+    height: 100%;
+    width: 50%;
+    padding: 10rem 2.5rem; }
+    @media (max-width: 75em) {
+      .book__form {
+        width: 65%; } }
+    @media (max-width: 56.25em) {
+      .book__form {
+        width: 100%; } }
 
 .footer {
   background-color: rgba(0, 0, 0, 0.8);

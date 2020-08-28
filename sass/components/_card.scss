@@ -141,4 +141,51 @@
 		font-weight: 100;
 	}
 
+
+
+// -------------------- media query for card ------------------------
+
+@include respond(tab-port) {
+		height: auto;
+		background-color: white;
+		box-shadow: 0 2rem 2rem rgba($color-black, .5);
+
+		&__side {
+			height: auto;
+			position: relative;
+			width: 100%;
+
+
+			&--back {
+				transform: rotateY(0deg);
+				clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+			}
+		}
+
+		&:hover &__side--front {
+			transform: rotateY(0deg);
+		}
+
+
+		//back
+		&__cta {
+			position: relative;
+			top: 0;
+			left: 0;
+			transform: translate(0);
+			width: 100%;
+			padding: 6rem 4rem 4rem 4rem;
+		}
+
+		&__price-box {
+			margin-bottom: 4rem; 
+		}
+
+		&__price-value {
+			font-size: 4rem;
+		}
+
 }
+
+}
+

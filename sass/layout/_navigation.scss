@@ -97,6 +97,12 @@
 		transition: all .5s;
 		visibility: hidden;
 
+		@include respond(phone) {
+
+			position: relative;
+			
+		}
+
 		left: 0;  // for animation
 	}
 
